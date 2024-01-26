@@ -8,16 +8,30 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
   spec = {
-    -- add LazyVim and import its plugins
+    -- Default LazyVim plugins
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
-    -- import any extras modules here
+
+    --Removing LazyVim UI plugins
+    { "folke/which-key.nvim", enabled = false },
+    { "folke/noice.nvim", enabled = false },
+    { "nvimdev/dashboard-nvim", enabled = false },
+    { "rcarriga/nvim-notify", enabled = false },
+    { "dstein64/vim-startuptime", enabled = false },
+
+    --Removing LazyVim coding plugins
+    { "folke/flash", enabled = false },
+    { "RRethy/vim-illuminate", enabled = false },
+    { "lukas-reineke/indent-blankline.nvim", enabled = false },
+    { "echasnovski/mini.indentscope", enabled = false },
+    { "L3MON4D3/LuaSnip", enabled = false },
+
+    --LazyVim extras plugins
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.json" },
-    -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
-    -- import/override with your plugins
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.linting.eslint" },
 
+    --External plugins
     { import = "plugins" },
   },
   defaults = {
