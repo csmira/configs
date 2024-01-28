@@ -23,7 +23,6 @@ require("lazy").setup({
     { "RRethy/vim-illuminate", enabled = false },
     { "lukas-reineke/indent-blankline.nvim", enabled = false },
     { "echasnovski/mini.indentscope", enabled = false },
-    { "L3MON4D3/LuaSnip", enabled = false },
 
     --LazyVim extras plugins
     { import = "lazyvim.plugins.extras.lang.typescript" },
