@@ -17,9 +17,10 @@ require("lazy").setup({
     { "nvimdev/dashboard-nvim", enabled = false },
     { "rcarriga/nvim-notify", enabled = false },
     { "dstein64/vim-startuptime", enabled = false },
+    { "nvim-neo-tree/neo-tree.nvim", enabled = false },
 
     --Removing LazyVim coding plugins
-    { "folke/flash", enabled = false },
+    { "folke/flash.nvim", enabled = false },
     { "RRethy/vim-illuminate", enabled = false },
     { "lukas-reineke/indent-blankline.nvim", enabled = false },
     { "echasnovski/mini.indentscope", enabled = false },
@@ -43,7 +44,7 @@ require("lazy").setup({
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
   install = { colorscheme = { "tokyonight", "habamax" } },
-  checker = { enabled = true }, -- automatically check for plugin updates
+  checker = { enabled = false }, -- automatically check for plugin updates
   performance = {
     rtp = {
       -- disable some rtp plugins

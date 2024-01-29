@@ -36,7 +36,7 @@ return {
       "<leader>r",
       function()
         local builtin = require("telescope.builtin")
-        builtin.lsp_references()
+        builtin.lsp_references({ initial_mode = "normal" })
       end,
       desc = "Find all references to word under cursor",
     },
