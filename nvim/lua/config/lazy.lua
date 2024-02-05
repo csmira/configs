@@ -33,6 +33,7 @@ require("lazy").setup({
 
     --External plugins
     { import = "plugins" },
+    { "mrjones2014/smart-splits.nvim" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
