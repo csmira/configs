@@ -1,0 +1,52 @@
+" IntelliJ specific keymaps
+" -------------------------
+" Escape: <C-[>
+" Focus Editor: <C-[>
+
+let mapleader=" "
+set relativenumber = true
+set tabstop = 4
+set softtabstop = 4
+set shiftwidth = 4
+set expandtab = true
+set smartindent = true
+set autoindent = true
+set incsearch = true
+set hlsearch = false
+set termguicolors = true
+set scrolloff = 8
+
+set NERDTree
+
+imap <C-[> <ESC>
+
+map <C-a> gg<S-v>G
+map <A-d> <C-d>zz
+map <A-u> <C-u>zz
+nmap ss <Action>(SplitVertically)
+nmap sh <Action>(SplitHorizontally)
+nmap <C-h> <Action>(PrevSplitter)
+nmap <C-l> <Action>(NextSplitter)
+nmap <S-l> <Action>(NextTab)
+nmap <S-h> <Action>(PreviousTab)
+
+nmap <leader><leader> <Action>(GotoFile)
+nmap <leader>/ <Action>(TextSearchAction)
+nmap <leader>s <Action>(FileStructurePopup)
+nmap <leader>r <Action>(FindUsages)
+
+nmap gI <Action>(GotoImplementation)
+nmap gd <Action>(GotoImplementation)
+nmap gD <Action>(GotoDeclaration)
+nmap gr <Action>(FindUsages)
+nmap K <Action>(QuickJavaDoc)
+
+nmap <leader>cr <Action>(RenameElement)
+nmap <leader>bP <Action>(CloseAllEditors)
+nmap <leader>bd <Action>(CloseActiveTab)
+nmap <leader>e <Action>(FileChooserList.Root)
+nmap <leader>xx <Action>(HideActiveWindow)
+
+nmap <leader>e :NERDTree<CR>
+nmap <leader>E :NERDTreeClose<CR>
+
