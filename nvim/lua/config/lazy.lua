@@ -12,7 +12,6 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
     --Removing LazyVim UI plugins
-    { "folke/which-key.nvim", enabled = false },
     { "folke/noice.nvim", enabled = false },
     { "nvimdev/dashboard-nvim", enabled = false },
     { "rcarriga/nvim-notify", enabled = false },
@@ -30,6 +29,8 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
     { import = "lazyvim.plugins.extras.linting.eslint" },
+    { import = "lazyvim.plugins.extras.lang.tailwind" },
+    { import = "lazyvim.plugins.extras.lang.java" },
 
     --External plugins
     { import = "plugins" },
