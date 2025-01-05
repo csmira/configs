@@ -2,22 +2,22 @@
 
 # Macos already comes with a pre-installed version of curl
 if ! [ -x "$(command -v brew)" ]; then
-	echo "Homebrew is needed to install required dependencies"
-	echo "Do you want to install homebrew? (yes or no)"
-	read user_response
+    echo "Homebrew is needed to install required dependencies"
+    echo "Do you want to install homebrew? (yes or no)"
+    read user_response
 
-	if [ "$user_response" == "yes" ]; then
-		echo "Installing homebrew..."
-		/bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-	else
-		echo "Exiting setup"
-		exit 0
-	fi
+    if [ "$user_response" == "yes" ]; then
+        echo "Installing homebrew..."
+        /bin/sh -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    else
+        echo "Exiting setup"
+        exit 0
+    fi
 fi
 
-# Installing yabai and skhd
-brew install koekeishiya/formulae/yabai
-brew install skhd
+# Installing aerospace and fzf
+brew install --cask nikitabobko/tap/aerospace
+brew install fzf
 
 # Installing fonts
 cd ~/Library/Fonts
@@ -33,9 +33,5 @@ brew install ripgrep
 
 # Install nvim
 brew install neovim
-
-# Starting services
-brew services start yabai
-brew services start skhd
 
 echo "Finished setting up configs"
