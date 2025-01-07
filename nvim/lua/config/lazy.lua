@@ -12,10 +12,6 @@ require("lazy").setup({
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
 
     --Removing LazyVim UI plugins
-    { "folke/noice.nvim", enabled = false },
-    { "nvimdev/dashboard-nvim", enabled = false },
-    { "rcarriga/nvim-notify", enabled = false },
-    { "dstein64/vim-startuptime", enabled = false },
     { "nvim-neo-tree/neo-tree.nvim", enabled = false },
 
     --Removing LazyVim coding plugins
