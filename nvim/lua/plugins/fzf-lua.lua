@@ -9,17 +9,17 @@ return {
   keys = {
     {
       "<leader><leader>",
-      LazyVim.pick("files"),
+      LazyVim.pick("files", { root = false }),
       desc = "Find files in working directory",
     },
     {
       "<leader>w",
-      LazyVim.pick("grep_cword"),
+      LazyVim.pick("grep_cword", { root = false }),
       desc = "Search for word under cursor in working directory",
     },
     {
       "<leader>/",
-      LazyVim.pick("live_grep"),
+      LazyVim.pick("live_grep", { root = false }),
       desc = "Search for a string in working directory",
     },
     {
