@@ -18,7 +18,7 @@ set scrolloff = 8
 
 set NERDTree
 
-imap <C-[> <ESC>
+inoremap <C-[> <Esc>
 
 map <C-a> gg<S-v>G
 map <A-d> <C-d>zz
@@ -33,19 +33,22 @@ nmap <S-h> <Action>(PreviousTab)
 nmap <leader><leader> <Action>(GotoFile)
 nmap <leader>/ <Action>(TextSearchAction)
 nmap <leader>s <Action>(FileStructurePopup)
-nmap <leader>r <Action>(FindUsages)
+nmap <leader>r <Action>(ShowUsages)
 
 nmap gI <Action>(GotoImplementation)
 nmap gd <Action>(GotoImplementation)
 nmap gD <Action>(GotoDeclaration)
-nmap gr <Action>(FindUsages)
+nmap gy <Action>(GotoTypeDeclaration)
+nmap gr <Action>(ShowUsages)
 nmap K <Action>(QuickJavaDoc)
 
 nmap <leader>cr <Action>(RenameElement)
+nmap <leader>cA <Action>(Generate)
+map <leader>ca <Action>(Refactorings.QuickListPopupAction)
 nmap <leader>bP <Action>(CloseAllEditors)
-nmap <leader>bd <Action>(CloseActiveTab)
-nmap <leader>e <Action>(FileChooserList.Root)
+nmap <leader>bd <Action>(CloseContent)
 nmap <leader>xx <Action>(HideActiveWindow)
+vmap gc <Action>(CommentByLineComment)
 
 nmap <leader>e :NERDTree<CR>
 nmap <leader>E :NERDTreeClose<CR>
