@@ -18,7 +18,7 @@ require("lazy").setup({
     { "folke/flash.nvim", enabled = false },
     { "RRethy/vim-illuminate", enabled = false },
     { "lukas-reineke/indent-blankline.nvim", enabled = false },
-    { "echasnovski/mini.indentscope", enabled = false },
+    { "nvim-mini/mini.indentscope", enabled = false },
 
     --LazyVim extras plugins
     { import = "lazyvim.plugins.extras.lang.typescript" },
