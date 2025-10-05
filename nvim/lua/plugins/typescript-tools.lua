@@ -1,0 +1,134 @@
+local common_utils = require("utils.common")
+local ft_js = {
+  "tsx",
+  "jsx",
+  "javascript",
+  "javascriptreact",
+  "javascript.jsx",
+  "typescript",
+  "typescriptreact",
+  "typescript.tsx",
+}
+
+return {
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function(_, opts)
+      vim.list_extend(opts.ensure_installed, {
+        "typescript",
+        "tsx",
+        "javascript",
+        "jsdoc",
+      })
+    end,
+  },
+  {
+    "neovim/nvim-lspconfig",
+    dependencies = {
+      { "b0o/SchemaStore.nvim" },
+    },
+    opts = {
+      servers = {
+        ts_ls = {
+          enabled = false,
+        },
+        -- @deprecated
+        tsserver = {
+          enabled = false,
+        },
+      },
+      setup = {
+        tsserver = function()
+          -- disable tsserver
+          return true
+        end,
+        ts_ls = function()
+          -- disable ts_ls
+          return true
+        end,
+      },
+    },
+  },
+  {
+    "pmizio/typescript-tools.nvim",
+    lazy = false,
+    keys = {
+      {
+        "gR",
+        "<cmd>TSToolsFileReferences<cr>",
+        ft = ft_js,
+        desc = "TSTools: File References",
+        buffer = true,
+      },
+    },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      {
+        "neovim/nvim-lspconfig",
+        opts = function(_, opts)
+          local keys = require("lazyvim.plugins.lsp.keymaps").get()
+
+          -- keys is a table of tables, where each table is a keymap, with 1st position being the key
+          -- and the 2nd position being the value
+          -- find me the keymap that has the key "<leader>CR"
+          local found
+          for _, keymap in ipairs(keys) do
+            if keymap[1] == "<leader>cR" then
+              -- print the value of the keymap
+              found = keymap
+              break
+            end
+          end
+
+          local lazyvim_cr_rhs = found and found[2] or 'echo "No keymap found"'
+
+          keys[#keys + 1] = {
+            "<leader>cR",
+            function()
+              if vim.tbl_contains(ft_js, vim.bo.filetype) then
+                vim.cmd("TSToolsRenameFile")
+              else
+                vim.cmd(lazyvim_cr_rhs)
+              end
+            end,
+            desc = "Rename File",
+            buffer = true,
+          }
+        end,
+      },
+    },
+    ft = ft_js,
+    opts = {
+      settings = {
+        code_lens = "off",
+        complete_function_calls = false,
+        include_completions_with_insert_text = true,
+        separate_diagnostic_server = true,
+        publish_diagnostic_on = "insert_leave",
+        tsserver_path = nil,
+        tsserver_max_memory = 32000,
+        tsserver_format_options = {
+          allowIncompleteCompletions = false,
+        },
+        tsserver_file_preferences = {
+          completions = { completeFunctionCalls = false },
+          includeInlayParameterNameHints = "none",
+          includeCompletionsForModuleExports = true,
+          init_options = {
+            preferences = {
+              disableSuggestions = true,
+            },
+          },
+          importModuleSpecifierPreference = "project-relative",
+          jsxAttributeCompletionStyle = "braces",
+        },
+        tsserver_locale = "en",
+        disable_member_code_lens = true,
+        jsx_close_tag = { enable = false },
+      },
+      root_dir = function()
+        return common_utils.get_project_root()
+      end,
+    },
+  },
+}

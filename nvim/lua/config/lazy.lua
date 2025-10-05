@@ -16,6 +16,7 @@ require("lazy").setup({
 
     --Removing LazyVim coding plugins
     { "folke/flash.nvim", enabled = false },
+    { "folke/noice.nvim", enabled = false },
     { "RRethy/vim-illuminate", enabled = false },
     { "lukas-reineke/indent-blankline.nvim", enabled = false },
     { "nvim-mini/mini.indentscope", enabled = false },

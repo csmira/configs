@@ -19,3 +19,43 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 
 vim.g.snacks_animate = false
+
+vim.opt.swapfile = false -- Disable swap file
+
+-- https://vi.stackexchange.com/a/5318/12823
+vim.g.matchparen_timeout = 2
+vim.g.matchparen_insert_timeout = 2
+
+vim.opt.syntax = "off"
+
+vim.o.spell = false
+
+vim.o.foldenable = false
+
+vim.lsp.set_log_level("off")
+
+vim.filetype.add({
+  extension = {
+    log = "log",
+    conf = "conf",
+    env = "dotenv",
+    mdx = "mdx",
+    jsonl = "jsonl",
+  },
+  filename = {
+    [".env"] = "dotenv",
+    ["env"] = "dotenv",
+    ["tsconfig.json"] = "jsonc",
+    [".*/kitty/.+%.conf"] = "kitty",
+  },
+  pattern = {
+    -- INFO: Match filenames like - ".env.example", ".env.local" and so on
+    ["%.env%.[%w_.-]+"] = "dotenv",
+    [".*%.yaml%.tmpl$"] = "gotexttmpl",
+    [".*%.toml%.tmpl$"] = "gotexttmpl",
+    [".*%.json%.tmpl$"] = "gotexttmpl",
+    [".*%.jsonc%.tmpl$"] = "gotexttmpl",
+    ["Dockerfile.*"] = "dockerfile",
+    [".gitconfig.*"] = "gitconfig",
+  },
+})
