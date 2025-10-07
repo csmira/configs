@@ -36,6 +36,12 @@ return {
         tsserver = {
           enabled = false,
         },
+        vtsls = {
+          enabled = false,
+        },
+        eslint = {
+          enabled = false,
+        },
       },
       setup = {
         tsserver = function()
